@@ -36,7 +36,7 @@ class _BackButtonWidgetState extends State<BackButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 30.0, 0.0, 0.0),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
