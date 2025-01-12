@@ -43,7 +43,7 @@ class _BackButtonWidgetState extends State<BackButtonWidget> {
         hoverColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () async {
-          context.safePop();
+          context.pushNamed('HomePage');
         },
         child: Container(
           decoration: BoxDecoration(
