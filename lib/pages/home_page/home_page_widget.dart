@@ -27,6 +27,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.startTime = getCurrentTimestamp;
       safeSetState(() {});
+      while (true) {
+        safeSetState(() {});
+        await Future.delayed(const Duration(milliseconds: 1000));
+      }
     });
   }
 
