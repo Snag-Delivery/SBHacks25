@@ -97,7 +97,10 @@ class _CounterWidgetState extends State<CounterWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            _model.currCount.toString(),
+                            valueOrDefault<String>(
+                              _model.currCount?.toString(),
+                              '0',
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

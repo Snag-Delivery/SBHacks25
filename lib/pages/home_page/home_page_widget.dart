@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -20,6 +22,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.startTime = getCurrentTimestamp;
+      safeSetState(() {});
+    });
   }
 
   @override
@@ -47,18 +55,28 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Hello World',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          fontSize: 80.0,
-                          letterSpacing: 0.0,
-                        ),
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Text(
+                      valueOrDefault<String>(
+                        functions.countdownTimeRemaining(
+                            _model.startTime!, 120),
+                        '00:00:00',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            fontSize: 80.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
                   ),
                 ],
               ),

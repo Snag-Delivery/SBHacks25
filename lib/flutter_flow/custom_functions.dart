@@ -13,5 +13,15 @@ String? countdownTimeRemaining(
   DateTime startTime,
   int? durationMins,
 ) {
-  return null;
+  DateTime endTime = startTime.add(Duration(minutes: durationMins!));
+  Duration timeLeft = endTime.difference(DateTime.now());
+  if (timeLeft.inSeconds > 0) {
+    return timeLeft.inHours.toString().padLeft(2, '0') +
+        ':' +
+        (timeLeft.inMinutes % 60).toString().padLeft(2, '0') +
+        ':' +
+        (timeLeft.inSeconds % 60).toString().padLeft(2, '0');
+  } else {
+    return '00:00:00';
+  }
 }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  Local state fields for this page.
 
-  int currCount = 0;
+  DateTime? startTime;
 
   @override
   void initState(BuildContext context) {}
