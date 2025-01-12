@@ -48,6 +48,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Counter',
           path: '/counter',
           builder: (context, params) => const CounterWidget(),
+        ),
+        FFRoute(
+          name: 'Profile14OtherUser',
+          path: '/profile14OtherUser',
+          builder: (context, params) => const Profile14OtherUserWidget(),
+        ),
+        FFRoute(
+          name: 'CountDown',
+          path: '/countDown',
+          builder: (context, params) => const CountDownWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

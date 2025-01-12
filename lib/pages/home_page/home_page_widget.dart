@@ -1,8 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -22,16 +21,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.startTime = getCurrentTimestamp;
-      safeSetState(() {});
-      while (true) {
-        safeSetState(() {});
-        await Future.delayed(const Duration(milliseconds: 1000));
-      }
-    });
   }
 
   @override
@@ -61,28 +50,76 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      valueOrDefault<String>(
-                        functions.countdownTimeRemaining(
-                            _model.startTime!, 120),
-                        '00:00:00',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Inter',
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            fontSize: 80.0,
-                            letterSpacing: 0.0,
-                          ),
-                    ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed('Counter');
+                  },
+                  text: 'Counter',
+                  options: FFButtonOptions(
+                    width: 200.0,
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Inter Tight',
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                        ),
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed('CountDown');
+                  },
+                  text: 'Countdown Timer',
+                  options: FFButtonOptions(
+                    width: 200.0,
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Inter Tight',
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                        ),
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  context.pushNamed('Profile14OtherUser');
+                },
+                text: 'Marketplace Sample',
+                options: FFButtonOptions(
+                  width: 200.0,
+                  height: 40.0,
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  iconPadding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Inter Tight',
+                        color: Colors.white,
+                        letterSpacing: 0.0,
+                      ),
+                  elevation: 0.0,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
               ),
             ],
           ),
