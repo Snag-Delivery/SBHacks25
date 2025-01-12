@@ -43,6 +43,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => const HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'Counter',
+          path: '/counter',
+          builder: (context, params) => const CounterWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
